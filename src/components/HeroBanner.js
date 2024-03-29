@@ -1,0 +1,25 @@
+import React from 'react';
+import banner from '../assets/assets/images/banner.png';
+
+const HeroBanner = () => {
+  return (
+    <div className="container text-center py-5">
+      <div className="row align-items-center flex-column-reverse flex-md-row">
+        <div className="col-md-6 d-flex flex-column justify-content-center">
+          <h2 className="text-primary" style={{ fontSize: "2.5rem", fontWeight: "bold" }}>Fitness Club</h2>
+          <h4 className="h4">Sweat, Smile, and Repeat</h4>
+          <p className="lead mb-4">Check out the most effective exercises to reach your fitness goals.</p>
+          <button className="btn btn-primary btn-lg">Explore Exercises</button>
+        </div>
+        <div className="col-md-6">
+          <img src={banner} className="img-fluid rounded-lg" alt="Banner Image" />
+        </div>
+      </div>
+      <div className="exercises-box bg-light p-3 rounded d-flex align-items-center justify-content-center mt-5">
+        <p className="exercises-banner display-1 text-primary m-0" style={{ fontSize: '3rem', fontWeight: 600, opacity: 0.3 }}>Exercises</p>
+      </div>
+    </div>
+  );
+};
+
+export default HeroBanner;
