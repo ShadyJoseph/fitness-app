@@ -1,0 +1,11 @@
+
+.bodypart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .bodypart-button {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
