@@ -6,9 +6,9 @@ const HeroBanner = () => {
     <div className="container text-center py-5">
       <div className="row align-items-center flex-column-reverse flex-md-row">
         <div className="col-md-6 d-flex flex-column justify-content-center">
-          <h2 className="text-primary" style={{ fontSize: "2.5rem", fontWeight: "bold" }}>Fitness Club</h2>
-          <h4 className="h4">Sweat, Smile, and Repeat</h4>
-          <p className="lead mb-4">Check out the most effective exercises to reach your fitness goals.</p>
+          <h2 className="text-primary-emphasis" style={{ fontSize: "2.5rem", fontWeight: "bold" }}>Fitness Club</h2>
+          <h4 className="h4 text-primary-emphasis" >Sweat, Smile, and Repeat</h4>
+          <p className="lead mb-4 text-primary-emphasis">Check out the most effective exercises to reach your fitness goals.</p>
           <button className="btn btn-primary btn-lg">Explore Exercises</button>
         </div>
         <div className="col-md-6">
