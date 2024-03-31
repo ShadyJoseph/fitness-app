@@ -25,7 +25,7 @@ const HeroBanner = () => {
           <button
             className="btn btn-primary btn-lg"
             onClick={() => {
-              window.scrollTo({ top: 1600, left: 100, behavior: "smooth" });
+              window.scrollTo({ top: 900, left: 100, behavior: "smooth" });
             }}
           >
             Explore Exercises

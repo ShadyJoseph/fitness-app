@@ -1,5 +1,5 @@
 import React from "react";
-import Icon from "../assets/assets/icons/gymB.png";
+import Icon from "../assets/assets/icons/gym.png";
 
 const Bodyparts = ({ item, setBodyPart, bodyPart }) => {
   const handleClick = () => {

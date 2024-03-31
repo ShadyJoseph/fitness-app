@@ -5,7 +5,6 @@ const Exercises = ({ exercises }) => {
   console.log(exercises);
   return (
     <div id="exercises" className="m-1 p-1">
-      <div>show results</div>
       <div className="stack">
         {exercises.map((exercise, index) => (
           <ExerciseCard key={index} exercise={exercise} />
