@@ -9,49 +9,34 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchBodyParts = async () => {
-      try {
-        const bodyPartsData = await fetchData(
-          'https://exercisedb.p.rapidapi.com/exercises/bodyPartList',
-          options
-        );
-        setBodyParts(['all', ...bodyPartsData]);
-        setLoading(false);
-      } catch (error) {
-        setError(error);
-        setLoading(false);
-      }
+    const fetchExercisesData = async () => {
+      const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', options);
+
+      setBodyParts(['all', ...bodyPartsData]);
     };
 
-    fetchBodyParts();
+    fetchExercisesData();
   }, []);
 
   const handleSearch = async () => {
-    if (search.trim()) {
-      try {
-        const exercisesData = await fetchData(
-          'https://exercisedb.p.rapidapi.com/exercises',
-          options
-        );
-        const searchedExercises = exercisesData.filter((exercise) =>
-          [
-            exercise.name,
-            exercise.target,
-            exercise.equipment,
-            exercise.bodyPart,
-          ]
-            .join(' ')
-            .toLowerCase()
-            .includes(search.toLowerCase())
-        );
-        setSearch('');
-        setExercises(searchedExercises);
-      } catch (error) {
-        console.error('Failed to fetch exercises:', error);
-      }
+    if (search) {
+      const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', options);
+
+    /*  const searchedExercises = exercisesData.filter(
+        (item) => 
+        (item.name.toLowerCase().includes(search) ||
+        item.target.toLowerCase().includes(search) ||
+        item.equipment.toLowerCase().includes(search) ||
+        item.bodyPart.toLowerCase().includes(search)) &&
+        (bodyPart === 'all' || item.bodyPart.toLowerCase() === bodyPart)
+    );*/
+      window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
+      setSearch('');
+      setExercises(exercisesData);
     }
   };
 
+  
   return (
     <div className="container text-center py-5">
       <div className="row justify-content-center">
@@ -63,7 +48,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
               className="form-control"
               placeholder="Search Exercise"
               value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={(e) => setSearch(e.target.value.toLowerCase())}
             />
             <div className="input-group-append">
               <button

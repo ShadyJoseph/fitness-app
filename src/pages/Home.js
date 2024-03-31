@@ -1,4 +1,3 @@
-// Home.js
 import React, { useState } from 'react';
 import HeroBanner from '../components/HeroBanner';
 import SearchExercises from '../components/SearchExercises';
@@ -12,7 +11,7 @@ const Home = () => {
     <div>
       <HeroBanner />
       <SearchExercises setExercises={setExercises} bodyPart={bodyPart} setBodyPart={setBodyPart} />
-      <Exercises exercises={exercises} setExercises={setExercises} bodyPart={bodyPart} setBodyPart={setBodyPart} />
+      <Exercises setExercises={setExercises} exercises={exercises} bodyPart={bodyPart} />
     </div>
   );
 };

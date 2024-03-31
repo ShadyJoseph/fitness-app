@@ -1,22 +1,45 @@
-import React from 'react';
-import banner from '../assets/assets/images/banner.png';
+import React from "react";
+import banner from "../assets/assets/images/banner.png";
 
 const HeroBanner = () => {
   return (
     <div className="container text-center py-5">
       <div className="row align-items-center flex-column-reverse flex-md-row">
         <div className="col-md-6 d-flex flex-column justify-content-center">
-          <h2 className="text-primary-emphasis" style={{ fontSize: "2.5rem", fontWeight: "bold" }}>Fitness Club</h2>
-          <h4 className="h4 text-primary-emphasis" >Sweat, Smile, and Repeat</h4>
-          <p className="lead mb-4 text-primary-emphasis">Check out the most effective exercises to reach your fitness goals.</p>
-          <button className="btn btn-primary btn-lg">Explore Exercises</button>
+          <h2
+            className="text-primary-emphasis"
+            style={{ fontSize: "2.5rem", fontWeight: "bold" }}
+          >
+            Fitness Club
+          </h2>
+          <h4 className="h4 text-primary-emphasis">Sweat, Smile, and Repeat</h4>
+          <p className="lead mb-4 text-primary-emphasis">
+            Check out the most effective exercises to reach your fitness goals.
+          </p>
+          <button
+            className="btn btn-primary btn-lg"
+            onClick={() => {
+              window.scrollTo({ top: 1600, left: 100, behavior: "smooth" });
+            }}
+          >
+            Explore Exercises
+          </button>
         </div>
         <div className="col-md-6">
-          <img src={banner} className="img-fluid rounded-lg" alt="Banner Image" />
+          <img
+            src={banner}
+            className="img-fluid rounded-lg"
+            alt="Banner Image"
+          />
         </div>
       </div>
       <div className="exercises-box bg-light p-3 rounded d-flex align-items-center justify-content-center mt-5">
-        <p className="exercises-banner display-1 text-primary m-0" style={{ fontSize: '3rem', fontWeight: 600, opacity: 0.3 }}>Exercises</p>
+        <p
+          className="exercises-banner display-1 text-primary m-0"
+          style={{ fontSize: "3rem", fontWeight: 600, opacity: 0.3 }}
+        >
+          Exercises
+        </p>
       </div>
     </div>
   );
