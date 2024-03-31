@@ -4,8 +4,8 @@ import logo from "../assets/assets/images/Logo.png";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div className="container d-flex justify-content-between align-items-center">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top"> 
+      <div className="container-fluid"> 
         <Link className="navbar-brand" to="/">
           <img
             src={logo}

@@ -1,7 +1,5 @@
-// HorizontalScrollBar.js
-import React, { useState } from 'react';
-import Bodyparts from './Bodyparts';
-import './style.css';
+import React, { useState } from "react";
+import Bodyparts from "./Bodyparts";
 
 const HorizontalScrollBar = ({ data, bodyPart, setBodyPart }) => {
   const [startIndex, setStartIndex] = useState(0);
@@ -17,20 +15,37 @@ const HorizontalScrollBar = ({ data, bodyPart, setBodyPart }) => {
   };
 
   return (
-    <div className="container mt-5 scrollbar-container">
-      <div className="d-flex flex-nowrap justify-content-between align-items-center" style={{ overflowX: 'hidden' }}>
+    <div className="container-fluid mt-5 scrollbar-container">
+      <div
+        className="d-flex flex-nowrap justify-content-between align-items-center overflow-hidden"
+        style={{ overflowX: "auto" }}
+      >
         {data.slice(startIndex, startIndex + 3).map((item, index) => (
-          <div key={item.id || index} className="mr-3">
-            <Bodyparts item={item} bodyPart={bodyPart} setBodyPart={setBodyPart} />
+          <div key={item.id || index} className="mr-3 flex-grow-0">
+            <Bodyparts
+              item={item}
+              bodyPart={bodyPart}
+              setBodyPart={setBodyPart}
+            />
           </div>
         ))}
       </div>
-      <button className="btn btn-primary mt-3" onClick={handleClickPrev} disabled={startIndex === 0}>
-        Previous
-      </button>
-      <button className="btn btn-primary mt-3 ms-2" onClick={handleClickNext} disabled={startIndex >= data.length - 3}>
-        Next
-      </button>
+      <div className="d-flex justify-content-center mt-3">
+        <button
+          className="btn btn-primary me-2"
+          onClick={handleClickPrev}
+          disabled={startIndex === 0}
+        >
+          Previous
+        </button>
+        <button
+          className="btn btn-primary"
+          onClick={handleClickNext}
+          disabled={startIndex >= data.length - 3}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 };

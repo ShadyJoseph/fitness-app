@@ -8,7 +8,7 @@ const Home = () => {
   const [bodyPart, setBodyPart] = useState('all');
 
   return (
-    <div>
+    <div className='container'>
       <HeroBanner />
       <SearchExercises setExercises={setExercises} bodyPart={bodyPart} setBodyPart={setBodyPart} />
       <Exercises setExercises={setExercises} exercises={exercises} bodyPart={bodyPart} />

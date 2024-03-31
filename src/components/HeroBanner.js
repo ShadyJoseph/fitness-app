@@ -1,19 +1,25 @@
 import React from "react";
+import Navbar from "./Navbar";
 import banner from "../assets/assets/images/banner.png";
 
 const HeroBanner = () => {
   return (
-    <div className="container text-center py-5">
+    <div className="container text-center py-5" style={{ marginTop: "30px" }}>
       <div className="row align-items-center flex-column-reverse flex-md-row">
-        <div className="col-md-6 d-flex flex-column justify-content-center">
+        <div className="col-md-6 d-flex flex-column justify-content-center mb-4 mb-md-0">
           <h2
-            className="text-primary-emphasis"
+            className="text-primary-emphasis mb-3 mb-md-4"
             style={{ fontSize: "2.5rem", fontWeight: "bold" }}
           >
             Fitness Club
           </h2>
-          <h4 className="h4 text-primary-emphasis">Sweat, Smile, and Repeat</h4>
-          <p className="lead mb-4 text-primary-emphasis">
+          <h4 className="h4 text-primary-emphasis mb-3 mb-md-4">
+            Sweat, Smile, and Repeat
+          </h4>
+          <p
+            className="lead mb-4 mb-md-5 text-primary-emphasis"
+            style={{ fontSize: "1.25rem" }}
+          >
             Check out the most effective exercises to reach your fitness goals.
           </p>
           <button

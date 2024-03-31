@@ -1,49 +1,55 @@
-import React, { useEffect, useState } from 'react';
-import { options, fetchData } from '../utils/FetchData';
-import HorizontalScrollBar from './HorizontalScrollBar';
-
+import React, { useEffect, useState } from "react";
+import { exerciseOptions, fetchData } from "../utils/FetchData";
+import HorizontalScrollBar from "./HorizontalScrollBar";
+const url = "https://exercisedb.p.rapidapi.com/exercises";
 const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
-  const [search, setSearch] = useState('');
-  const [bodyParts, setBodyParts] = useState(['all']);
+  const [search, setSearch] = useState("");
+  const [bodyParts, setBodyParts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchExercisesData = async () => {
-      const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', options);
+      const bodyPartsData = await fetchData(
+        "https://exercisedb.p.rapidapi.com/exercises/bodyPartList",
+        exerciseOptions
+      );
 
-      setBodyParts(['all', ...bodyPartsData]);
+      setBodyParts(["all", ...bodyPartsData]);
     };
-
+    setLoading(false);
     fetchExercisesData();
   }, []);
 
   const handleSearch = async () => {
     if (search) {
-      const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', options);
+      const exercisesData = await fetchData(
+        "https://exercisedb.p.rapidapi.com/exercises",
+        exerciseOptions
+      );
 
-    /*  const searchedExercises = exercisesData.filter(
-        (item) => 
-        (item.name.toLowerCase().includes(search) ||
-        item.target.toLowerCase().includes(search) ||
-        item.equipment.toLowerCase().includes(search) ||
-        item.bodyPart.toLowerCase().includes(search)) &&
-        (bodyPart === 'all' || item.bodyPart.toLowerCase() === bodyPart)
-    );*/
-      window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
-      setSearch('');
-      setExercises(exercisesData);
+      const searchedExercises = exercisesData.filter(
+        (item) =>
+          item.name.toLowerCase().includes(search) ||
+          item.target.toLowerCase().includes(search) ||
+          item.equipment.toLowerCase().includes(search) ||
+          item.bodyPart.toLowerCase().includes(search)
+      );
+
+      window.scrollTo({ top: 1800, left: 100, behavior: "smooth" });
+
+      setSearch("");
+      setExercises(searchedExercises);
     }
   };
 
-  
   return (
     <div className="container text-center py-5">
       <div className="row justify-content-center">
         <div className="col-md-6">
           <div className="input-group">
             <input
-              style={{ boxShadow: 'none' }}
+              style={{ boxShadow: "none" }}
               type="text"
               className="form-control"
               placeholder="Search Exercise"
@@ -69,7 +75,11 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
         <p>Error: {error.message}</p>
       ) : (
         <div>
-          <HorizontalScrollBar data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart} />
+          <HorizontalScrollBar
+            data={bodyParts}
+            bodyPart={bodyPart}
+            setBodyPart={setBodyPart}
+          />
         </div>
       )}
     </div>
