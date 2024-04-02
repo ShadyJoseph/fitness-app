@@ -21,7 +21,7 @@ const ExerciseDetails = () => {
   }, [id]);
 
   return (
-    <div className="container vh-100 d-flex justify-content-center align-items-center">
+    <div className="container d-flex justify-content-center align-items-center vh-100">
       <div className="row">
         <div className="col-md-8">
           <Details exerciseDetail={exerciseDetail} />
