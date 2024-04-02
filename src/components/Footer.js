@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="container">
         <div className="row align-items-center justify-content-center">
           <div className="col-md-4 text-center mb-3 mb-md-0">
-            <p className="mb-0">Contact Us: </p>
+            <p className="mb-2 fs-5">Contact Us </p>
             <div>
               <a href="mailto:shadyjosephabadeer2003@gmail.com" className="text-white me-3">
                 <FontAwesomeIcon icon={faEnvelope} className="me-2" />
@@ -28,7 +28,7 @@ const Footer = () => {
             <p className="mb-0">Terms and Conditions</p>
           </div>
           <div className="col-md-4 text-center">
-            <p>Social Media: </p>
+            <p className='fs-5'>Social Media </p>
             <div>
               <a href="https://www.instagram.com/" className="text-white me-3" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faInstagram} className="me-2" />
