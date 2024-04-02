@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { exerciseOptions, fetchData } from "../utils/FetchData";
 import HorizontalScrollBar from "./HorizontalScrollBar";
-const url = "https://exercisedb.p.rapidapi.com/exercises";
+import Loader from "./Loader";
+
 const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   const [search, setSearch] = useState("");
   const [bodyParts, setBodyParts] = useState([]);
@@ -9,38 +10,46 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchExercisesData = async () => {
-      const bodyPartsData = await fetchData(
-        "https://exercisedb.p.rapidapi.com/exercises/bodyPartList",
-        exerciseOptions
-      );
-
-      setBodyParts(["all", ...bodyPartsData]);
+    const fetchBodyParts = async () => {
+      try {
+        const bodyPartsData = await fetchData(
+          "https://exercisedb.p.rapidapi.com/exercises/bodyPartList",
+          exerciseOptions
+        );
+        setBodyParts(["all", ...bodyPartsData]);
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
     };
-    setLoading(false);
-    fetchExercisesData();
+
+    fetchBodyParts();
   }, []);
 
-  const handleSearch = async () => {
-    if (search) {
-      const exercisesData = await fetchData(
-        "https://exercisedb.p.rapidapi.com/exercises",
-        exerciseOptions
-      );
+  const handleSearchButtonClick = async () => {
+    try {
+      setLoading(true);
+      let exercisesData = [];
 
-      const searchedExercises = exercisesData.filter(
-        (item) =>
-          item.name.toLowerCase().includes(search) ||
-          item.target.toLowerCase().includes(search) ||
-          item.equipment.toLowerCase().includes(search) ||
-          item.bodyPart.toLowerCase().includes(search)
-      );
+      if (search.trim() === '') {
 
-      window.scrollTo({ top: 1800, behavior: "smooth" });
+        exercisesData = await fetchData(
+          "https://exercisedb.p.rapidapi.com/exercises",
+          exerciseOptions
+        );
+      } else {
+        exercisesData = await fetchData(
+          `https://exercisedb.p.rapidapi.com/exercises/name/${search}`,
+          exerciseOptions
+        );
+      }
 
-      setSearch("");
-      setExercises(searchedExercises);
-      window.scrollTo({ top: 1400, behavior: "smooth" });
+      setLoading(false);
+      setExercises(exercisesData);
+    } catch (error) {
+      setError(error);
+      setLoading(false);
     }
   };
 
@@ -62,7 +71,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
                 style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }}
                 className="btn btn-primary"
                 type="button"
-                onClick={handleSearch}
+                onClick={handleSearchButtonClick}
               >
                 Search
               </button>
@@ -71,7 +80,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
         </div>
       </div>
       {loading ? (
-        <p>Loading...</p>
+        <p><Loader/></p>
       ) : error ? (
         <p>Error: {error.message}</p>
       ) : (
@@ -80,6 +89,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
             data={bodyParts}
             bodyPart={bodyPart}
             setBodyPart={setBodyPart}
+            setSearch={setSearch}
           />
         </div>
       )}

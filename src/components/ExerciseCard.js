@@ -11,6 +11,7 @@ const ExerciseCard = ({ exercise }) => {
   };
 
   const cardStyle = {
+    borderTop:"4px solid blue",
     flexBasis: "calc(50% - 20px)",
     marginBottom: "20px",
     boxSizing: "border-box",
@@ -38,7 +39,9 @@ const ExerciseCard = ({ exercise }) => {
   };
 
   return (
+    <>
     <div style={cardContainerStyle}>
+     
       <Link
         className="exercise-card"
         to={`/exercise/${exercise.id}`}
@@ -61,6 +64,7 @@ const ExerciseCard = ({ exercise }) => {
         </div>
       </Link>
     </div>
+    </>
   );
 };
 

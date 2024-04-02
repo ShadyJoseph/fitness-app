@@ -4,7 +4,7 @@ import logo from "../assets/assets/images/Logo.png";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top"> 
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top "> 
       <div className="container-fluid"> 
         <Link className="navbar-brand" to="/">
           <img

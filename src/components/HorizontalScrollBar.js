@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Bodyparts from "./Bodyparts";
 
-const HorizontalScrollBar = ({ data, bodyPart, setBodyPart }) => {
+const HorizontalScrollBar = ({ data, bodyPart, setBodyPart,setSearch,handleSearchButtonClick }) => {
   const [startIndex, setStartIndex] = useState(0);
 
   const handleClickPrev = () => {
@@ -26,6 +26,7 @@ const HorizontalScrollBar = ({ data, bodyPart, setBodyPart }) => {
               item={item}
               bodyPart={bodyPart}
               setBodyPart={setBodyPart}
+              setSearch={setSearch}
             />
           </div>
         ))}

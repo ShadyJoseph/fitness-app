@@ -1,10 +1,11 @@
 import React from "react";
 import Icon from "../assets/assets/icons/gym.png";
 
-const Bodyparts = ({ item, setBodyPart, bodyPart }) => {
+const Bodyparts = ({ item, setBodyPart, bodyPart,setSearch}) => {
   const handleClick = () => {
-    setBodyPart(item);
-    window.scrollTo({ top: 1800, left: 100, behavior: "smooth" });
+  setBodyPart(item); 
+  setSearch(item); 
+  window.scrollTo({ top: 1800, left: 100, behavior: "smooth" });
   };
 
   return (
