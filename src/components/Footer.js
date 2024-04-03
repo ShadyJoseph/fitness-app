@@ -5,8 +5,8 @@ import { faInstagram, faFacebook, faYoutube } from '@fortawesome/free-brands-svg
 
 const Footer = () => {
   return (
-    <footer className="footer mt-auto py-4 bg-primary text-white">
-      <div className="container">
+    <footer className=" footer footer-expand-lg mt-auto py-4 bg-primary text-white">
+      <div className="container-fluid">
         <div className="row align-items-center justify-content-center">
           <div className="col-md-4 text-center mb-3 mb-md-0">
             <p className="mb-2 fs-5">Contact Us </p>
