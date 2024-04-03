@@ -7,13 +7,13 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 const App = () => {
   return (
-    <div className='container'>
-    <Navbar/>
-        <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/exercise/:id" element={<ExerciseDetails/>} />
-        </Routes>
-    <Footer/>
+    <div className='container-fluid'> 
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/exercise/:id" element={<ExerciseDetails />} />
+      </Routes>
+      <Footer />
     </div>
   );
 }

@@ -1,10 +1,9 @@
 import React from "react";
-import Navbar from "./Navbar";
 import banner from "../assets/assets/images/banner.png";
 
 const HeroBanner = () => {
   return (
-    <div className="container text-center py-5" style={{ marginTop: "30px" }}>
+    <div className="container text-center py-5" style={{ marginTop: "50px" }}>
       <div className="row align-items-center flex-column-reverse flex-md-row">
         <div className="col-md-6 d-flex flex-column justify-content-center mb-4 mb-md-0">
           <h2
